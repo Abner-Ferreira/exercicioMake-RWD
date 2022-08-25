@@ -4,12 +4,13 @@ import { useEffect } from "react";
 
 export default function Consumer(){
 
-    // const objeto = {
-    //     nome: 'Abner',
-    //     profissao : 'Estudante',
-    //     id: 213213,
-    //     cpf: 42341234
-    // }
+    const bgCss={
+        backgroundColor: '#d3d3d3'
+    }
+    const ulCss={
+        textAlign: 'center',
+        listStyle: 'none'
+    }
 
     const [makes, setMakes] = useState([])
     useEffect(()=>{
@@ -28,13 +29,13 @@ export default function Consumer(){
     },[makes])
 
     return(
-        <div>
-            <h1>Lista de usuários do GitHub</h1>
-            <ul>
+        <div style={bgCss}>
+            <h1 style={{textAlign: 'center',  fontSize: '3em'}}>Lista de Makes</h1>
+            <ul style={ulCss}>
                 {makes.map((make)=>
                     <li key={make.id}>
                         <h2>{make.name}</h2>
-                        <img src={make.image_link} alt={make.name} />
+                        <img src={make.image_link} alt={make.name} style={{width: '15em'}}/>
                         <p><a href={make.product_link}>Clique aqui para a compra</a></p>
                     </li>
                 )}
